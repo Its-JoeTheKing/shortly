@@ -1,13 +1,13 @@
 html {
 	height: 100vh;
 }
-* {
-	font-family: 'roboto';
-}
+
 body {
-	height: 100%;
+	height: 95%;
 	margin: 0;
 	padding: 0;
+	background: url("../../public/imgs/bg.png");
+	background-size: cover;
 }
 header {
 	top: 0;
@@ -17,10 +17,9 @@ header {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	background: white;
 }
-header .title {
-	font-family: 'josefin sans';
-}
+
 header ul {
 	width: 60%;
 	display: flex;
@@ -31,16 +30,34 @@ header ul li {
 header ul a {
 	text-decoration: none;
 	color: grey;
-	font-weight: bold;
-	font-family: 'Acme';
 	font-size: 15px;
 	margin-right: 30px;
+	position: relative;
+	padding: 5px;
+}
+header ul a::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 3px;
+	background: #00cedd;
+	width: 0;
+	left: 0;
+}
+header ul a:hover::after {
+	transition: 1s;
+	cursor: pointer;
+	width: 100%;
+}
+header ul a:hover {
+	transition: 1.5s;
+	color: rgb(0, 206, 221);
 }
 .login {
 	border-radius: 50px;
 	border: none;
 	padding: 8px 25px 8px 25px;
-	font-weight: bold;
 	background: rgb(0, 206, 221);
 	color: white;
 	font-size: 15px;
@@ -53,7 +70,6 @@ header ul a {
 	color: rgb(0, 206, 221);
 	background: none;
 	border: none;
-	font-weight: bold;
 	font-size: 15px;
 }
 .s1 {
@@ -77,8 +93,6 @@ header ul a {
 	height: 80%;
 }
 .s1-1 h1 {
-	font-family: 'Poppins';
-	font-weight: 700;
 	font-size: 60px;
 	width: 80%;
 	margin: 0;
@@ -89,7 +103,6 @@ header ul a {
 	margin: 0;
 	margin-top: 20px;
 	width: 70%;
-	font-weight: bold;
 	color: rgb(59, 59, 59);
 	margin-left: 20%;
 }
@@ -109,7 +122,10 @@ header ul a {
 	color: white;
 	opacity: 80%;
 	font-size: 17px;
-	font-weight: bold;
+}
+.s1-1 button:hover {
+	cursor: pointer;
+	opacity: 0.6;
 }
 .s2 {
 	width: 100%;
@@ -118,12 +134,12 @@ header ul a {
 	display: flex;
 	flex-flow: column;
 	align-items: center;
-	background: hsla(0, 0%, 45%, 0.3);
+	background: #63c4ea;
 }
 .link-zone {
 	width: 70%;
 	height: 50%;
-	background: url("./imgs/light-blue.jpg");
+	background-image: url("../../public/imgs/light-blue.jpg");
 	background-size: cover;
 	border-radius: 10px;
 	display: flex;
@@ -131,17 +147,55 @@ header ul a {
 	gap: 10px;
 	align-items: center;
 	margin-top: -7%;
+	position: relative;
+}
+@keyframes shake {
+	0% {
+		transform: translate(-4px, 0);
+	}
+	25% {
+		transform: translate(0px, 0);
+	}
+	50% {
+		transform: translate(4px, 0);
+	}
+	75% {
+		transform: translate(0px, 0);
+	}
+	100% {
+		transform: translate(-4px, 0);
+	}
+}
+@keyframes opaci {
+	0% {
+		margin-top: -60px;
+	}
+	100% {
+		opacity: 10px;
+	}
 }
 .link-zone input {
 	border-radius: 5px;
 	width: 50%;
 	outline: none;
-	border: none;
-	height: 40px;
-	font-weight: bold;
+	border: 2px solid transparent;
+	height: 50px;
 	font-size: 16px;
-	font-family: "josefin sans";
 	padding-left: 30px;
+}
+.link-zone::after {
+	content: "Invalid link or url (must contain http or https)";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-left: 16%;
+	background: rgb(253, 34, 34);
+	padding: 6px;
+	color: white;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	z-index: 1000;
+	display: none;
 }
 .link-zone button {
 	border-radius: 5px;
@@ -149,11 +203,9 @@ header ul a {
 	border: none;
 	background: none;
 	border: 2px white solid;
-	height: 40px;
+	height: 52px;
 	color: white;
-	font-weight: bold;
 	font-size: 15px;
-	font-family: "Poppins";
 }
 .link-zone button:hover {
 	cursor: pointer;
@@ -168,11 +220,10 @@ header ul a {
 	display: flex;
 	justify-content: space-between;
 	border-radius: 5px;
+	animation: opaci 1s ease-in-out 1;
 }
 .link p {
 	margin: 20px;
-	font-family: "Poppins";
-	font-weight: 500;
 }
 .link div {
 	display: flex;
@@ -180,15 +231,21 @@ header ul a {
 	margin-right: 20px;
 }
 .link div button {
-	height: 30px;
+	height: 35px;
 	border: none;
-	width: 80px;
+	width: 90px;
 	background: rgb(0, 206, 221);
 	color: white;
-	font-weight: bold;
 	border-radius: 3px;
+	font-size: 15px;
+}
+.link div button:hover {
+	cursor: pointer;
 }
 .link div p {
 	color: hsl(209, 100%, 50%);
 	font-size: 15px;
+}
+.s2 {
+	position: relative;
 }
