@@ -20,7 +20,7 @@ function Link({link, redirect})
 	);
 }
 
-export default function () {
+export default function Page() {
 	var [url, setUrl] = useState("");
 	var [error, setError] = useState(0);
 	var [url_render, setUrlRender] = useState("");
@@ -35,7 +35,7 @@ export default function () {
 		if (url.includes("https://") || url.includes("http://"))
 		{
 			setUrlRender(url);
-			axios.post("http://127.0.0.1:3000/add", {link: url}).then((res)=>{setShort(res.data)});
+			axios.post("https://shortly-server-0o6k.onrender.com/add", {link: url}).then((res)=>{setShort(res.data)});
 			setClicked(1);
 			setUrl("");
 		}
@@ -49,7 +49,7 @@ export default function () {
       <section className="s1">
 	    <div className="s1-1">
 			  <h1 className={poppins.className}>More than just links shorter</h1>
-			  <p className={opensans.className} style={{fontSize: 16, lineHeight: 1.5, width: "60%"}}>Build your brand's recognition and get detailed insights, make your link shorter and brighent</p>
+			  <p className={opensans.className} style={{fontSize: 16, lineHeight: 1.5, width: "60%"}}>Build your brand recognition and get detailed insights, make your link shorter and brighent</p>
 			  <div className="b-cont">
 		  		<a href="#s2"><button className={poppins.className}>Get Started</button></a>
 			  </div>
